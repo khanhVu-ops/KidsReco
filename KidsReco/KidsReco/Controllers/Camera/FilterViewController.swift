@@ -346,7 +346,7 @@ class FilterViewController: BaseViewController {
             } else {
                 DispatchQueue.main.async {
                     self.lbIdentifier.text = name
-                    self.lbMatch.text = "Math: \((confidence * 100.0).rounded(toPlaces: 2))%"
+                    self.lbMatch.text = "Match: \((confidence * 100.0).rounded(toPlaces: 2))%"
                 }
             }
         }

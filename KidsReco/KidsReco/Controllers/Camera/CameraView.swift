@@ -53,7 +53,7 @@ class CameraView: UIView {
     
     private lazy var btnFlash: UIButton = {
         let btn = UIButton()
-        btn.setImage(Constants.Image.flashSystem, for: .normal)
+        btn.setImage(Constants.Image.flashSlashSystem, for: .normal)
         btn.tintColor = .white
         btn.addTarget(self, action: #selector(btnFlashTapped), for: .touchUpInside)
         return btn
@@ -105,13 +105,13 @@ class CameraView: UIView {
         
         self.btnSwitchCamera.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10)
-            make.width.height.equalTo(50)
-            make.trailing.equalTo(self.snp.centerX).offset(-10)
+            make.width.height.equalTo(40)
+            make.trailing.equalToSuperview().offset(-10)
         }
         self.btnFlash.snp.makeConstraints { make in
-            make.top.equalTo(self.btnSwitchCamera)
-            make.width.height.equalTo(50)
-            make.leading.equalTo(self.snp.centerX).offset(10)
+            make.top.equalTo(self.btnSwitchCamera.snp.bottom).offset(20)
+            make.width.height.equalTo(40)
+            make.centerX.equalTo(self.btnSwitchCamera)
         }
         
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(_:)))
@@ -331,15 +331,17 @@ class CameraView: UIView {
         switch self.outputType {
         case .video:
             let device = self.videoDeviceInput.device
-            guard device.isTorchAvailable else { return }
+            guard device.isTorchAvailable else {
+                return
+            }
             do {
                 try device.lockForConfiguration()
                 if device.torchMode == .off {
-                    self.btnFlash.setImage(UIImage(systemName: "bolt.slash.fill"), for: .normal)
+                    self.btnFlash.setImage(Constants.Image.flashSystem, for: .normal)
                     device.torchMode = .on
                     try device.setTorchModeOn(level: 0.7)
                 } else {
-                    self.btnFlash.setImage(UIImage(systemName: "bolt.fill"), for: .normal)
+                    self.btnFlash.setImage(Constants.Image.flashSlashSystem, for: .normal)
                     device.torchMode = .off
                 }
                 device.unlockForConfiguration()
@@ -349,15 +351,23 @@ class CameraView: UIView {
             }
         default:
             if flash == .off {
-                self.btnFlash.setImage(UIImage(systemName: "bolt.fill"), for: .normal)
+                self.btnFlash.setImage(Constants.Image.flashSystem, for: .normal)
                 flash = .on
             } else {
-                self.btnFlash.setImage(UIImage(systemName: "bolt.slash.fill"), for: .normal)
+                self.btnFlash.setImage(Constants.Image.flashSlashSystem, for: .normal)
                 flash = .off
             }
         
         }
         
+    }
+    
+    func isHiddenIconFlast(isHidden: Bool) {
+        if outputType == .video {
+            DispatchQueue.main.async {
+                self.btnFlash.isHidden = isHidden
+            }
+        }
     }
     @objc func btnSwitchcameraTapped() {
         sessionQueue.async {
@@ -371,10 +381,11 @@ class CameraView: UIView {
             case .unspecified, .front:
                 preferredPosition = .back
                 preferredDeviceType = .builtInDualCamera
-                
+                self.isHiddenIconFlast(isHidden: false)
             case .back:
                 preferredPosition = .front
                 preferredDeviceType = .builtInWideAngleCamera
+                self.isHiddenIconFlast(isHidden: true)
             }
             
             let devices = self.videoDeviceDiscoverySession.devices
@@ -437,7 +448,6 @@ class CameraView: UIView {
             }
         }
     }
-        
 }
 
 extension CameraView: AVCaptureVideoDataOutputSampleBufferDelegate {
