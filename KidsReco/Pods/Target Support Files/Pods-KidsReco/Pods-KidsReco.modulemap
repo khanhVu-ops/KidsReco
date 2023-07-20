@@ -1,0 +1,6 @@
+framework module Pods_KidsReco {
+  umbrella header "Pods-KidsReco-umbrella.h"
+
+  export *
+  module * { export * }
+}
