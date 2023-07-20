@@ -6,24 +6,53 @@
 //
 
 import UIKit
+import WebKit
 
 class WebViewViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    private let webView: WKWebView = {
+        let preference = WKWebpagePreferences()
+        preference.allowsContentJavaScript = true
+        let configuration = WKWebViewConfiguration()
+        configuration.defaultWebpagePreferences = preference
+        let webView = WKWebView(frame: .zero, configuration: configuration)
+        return webView
+    }()
+    
+    private let url: URL
+    
+    init(url: URL, title: String) {
+        self.url = url
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-    */
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.addSubview(webView)
+        webView.load(URLRequest(url: url))
+        configButton()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        webView.frame = view.bounds
+    }
+    
+    private func configButton() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapDone))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(didTapRefresh))
+    }
+    
+    @objc private func didTapDone() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func didTapRefresh() {
+        webView.load(URLRequest(url: url))
+    }
 }

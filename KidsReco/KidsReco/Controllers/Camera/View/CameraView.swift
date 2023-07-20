@@ -48,14 +48,16 @@ class CameraView: UIView {
         btn.addTarget(self, action: #selector(btnSwitchcameraTapped), for: .touchUpInside)
         btn.setImage(Constants.Image.switchCameraSystem, for: .normal)
         btn.tintColor = .white
+        btn.backgroundColor = .clear.withAlphaComponent(0.1)
         return btn
     }()
     
     private lazy var btnFlash: UIButton = {
         let btn = UIButton()
         btn.setImage(Constants.Image.flashSlashSystem, for: .normal)
-        btn.tintColor = .white
         btn.addTarget(self, action: #selector(btnFlashTapped), for: .touchUpInside)
+        btn.tintColor = .white
+        btn.backgroundColor = .clear.withAlphaComponent(0.1)
         return btn
     }()
     
@@ -92,6 +94,12 @@ class CameraView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.btnSwitchCamera.circleClip()
+        self.btnFlash.circleClip()
     }
     
     func configView() {

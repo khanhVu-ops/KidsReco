@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		33BFBF1F2A69324500F954D6 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BFBF1E2A69324500F954D6 /* WebViewViewController.swift */; };
+		33C8BC0A2A69B12900B76793 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C8BC092A69B12900B76793 /* MenuViewModel.swift */; };
 		33D96A3E2A6839A6006BFFE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D96A3C2A6839A6006BFFE4 /* LaunchScreen.storyboard */; };
 		33D96A7B2A6839E8006BFFE4 /* Flower_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 33D96A452A6839E8006BFFE4 /* Flower_model.mlmodel */; };
 		33D96A7C2A6839E8006BFFE4 /* Flowers_classification.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 33D96A462A6839E8006BFFE4 /* Flowers_classification.mlmodel */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		0C3BFAB2BE07CC973E0308B8 /* Pods-KidsReco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidsReco.debug.xcconfig"; path = "Target Support Files/Pods-KidsReco/Pods-KidsReco.debug.xcconfig"; sourceTree = "<group>"; };
 		33BFBF1E2A69324500F954D6 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
+		33C8BC092A69B12900B76793 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		33D96A2E2A6839A4006BFFE4 /* KidsReco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsReco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33D96A3D2A6839A6006BFFE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33D96A452A6839E8006BFFE4 /* Flower_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Flower_model.mlmodel; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 			children = (
 				33D96A6C2A6839E8006BFFE4 /* MenuViewController.swift */,
 				33D96A6B2A6839E8006BFFE4 /* MenuViewController.xib */,
+				33C8BC092A69B12900B76793 /* MenuViewModel.swift */,
 			);
 			path = "Menu View";
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				33D96A862A6839E8006BFFE4 /* BaseExtensions.swift in Sources */,
 				33D96AA22A6839E9006BFFE4 /* PopupSavedView.swift in Sources */,
 				33D96A7B2A6839E8006BFFE4 /* Flower_model.mlmodel in Sources */,
+				33C8BC0A2A69B12900B76793 /* MenuViewModel.swift in Sources */,
 				33D96A9A2A6839E9006BFFE4 /* MenuViewController.swift in Sources */,
 				33D96A8A2A6839E8006BFFE4 /* Optional+Extensions.swift in Sources */,
 				33D96AA52A6839E9006BFFE4 /* Toast.swift in Sources */,
