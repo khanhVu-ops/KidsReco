@@ -73,6 +73,7 @@ class FilterViewController: BaseViewController {
         btn.tintColor = .white
         btn.addConnerRadius(radius: 10)
         btn.addTarget(self, action: #selector(btnReloadTapped), for: .touchUpInside)
+        btn.isHidden = true
         return btn
     }()
     
@@ -255,7 +256,13 @@ class FilterViewController: BaseViewController {
                     self?.showAlertSetting(title: "App", message: "Not mode Photos")
                 }
             } else {
-                // chuyeenr manf
+                guard let url = URL(string: "https://en.wikipedia.org/wiki/Tulip") else {
+                    return
+                }
+                
+                let webVC = WebViewViewController(url: url, title: "Rose Flower")
+                let navWeb = UINavigationController(rootViewController: webVC)
+                self?.present(navWeb, animated: true, completion: nil)
             }
         }
         
@@ -391,6 +398,7 @@ class FilterViewController: BaseViewController {
         self.isCaptured = isCaptured
         self.vCapture.showCheckMark(isShow: isCaptured)
         self.imvLibrary.isHidden = isCaptured
+        self.btnReloadCamera.isHidden = !isCaptured
     }
 }
 
