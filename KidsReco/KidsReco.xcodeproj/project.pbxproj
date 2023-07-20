@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33BFBF1F2A69324500F954D6 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BFBF1E2A69324500F954D6 /* WebViewViewController.swift */; };
 		33D96A3E2A6839A6006BFFE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D96A3C2A6839A6006BFFE4 /* LaunchScreen.storyboard */; };
 		33D96A7B2A6839E8006BFFE4 /* Flower_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 33D96A452A6839E8006BFFE4 /* Flower_model.mlmodel */; };
 		33D96A7C2A6839E8006BFFE4 /* Flowers_classification.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 33D96A462A6839E8006BFFE4 /* Flowers_classification.mlmodel */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		0C3BFAB2BE07CC973E0308B8 /* Pods-KidsReco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidsReco.debug.xcconfig"; path = "Target Support Files/Pods-KidsReco/Pods-KidsReco.debug.xcconfig"; sourceTree = "<group>"; };
+		33BFBF1E2A69324500F954D6 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		33D96A2E2A6839A4006BFFE4 /* KidsReco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsReco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33D96A3D2A6839A6006BFFE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33D96A452A6839E8006BFFE4 /* Flower_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Flower_model.mlmodel; sourceTree = "<group>"; };
@@ -120,6 +122,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33BFBF202A69324F00F954D6 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				33BFBF1E2A69324500F954D6 /* WebViewViewController.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		33BFBF212A69329500F954D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				33D96A662A6839E8006BFFE4 /* DetailImageView.swift */,
+				33D96A682A6839E8006BFFE4 /* CameraView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		33D96A252A6839A4006BFFE4 = {
 			isa = PBXGroup;
 			children = (
@@ -197,11 +216,12 @@
 		33D96A5D2A6839E8006BFFE4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				33D96A6D2A6839E8006BFFE4 /* MainTabbarController.swift */,
+				33D96A6E2A6839E8006BFFE4 /* Base */,
 				33D96A5E2A6839E8006BFFE4 /* Home View */,
 				33D96A652A6839E8006BFFE4 /* Camera */,
 				33D96A6A2A6839E8006BFFE4 /* Menu View */,
-				33D96A6D2A6839E8006BFFE4 /* MainTabbarController.swift */,
-				33D96A6E2A6839E8006BFFE4 /* Base */,
+				33BFBF202A69324F00F954D6 /* WebView */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -209,10 +229,10 @@
 		33D96A5E2A6839E8006BFFE4 /* Home View */ = {
 			isa = PBXGroup;
 			children = (
-				33D96A5F2A6839E8006BFFE4 /* HomeViewModel.swift */,
-				33D96A602A6839E8006BFFE4 /* HomeViewController.xib */,
-				33D96A612A6839E8006BFFE4 /* HomeViewController.swift */,
 				33D96A622A6839E8006BFFE4 /* Cell */,
+				33D96A612A6839E8006BFFE4 /* HomeViewController.swift */,
+				33D96A602A6839E8006BFFE4 /* HomeViewController.xib */,
+				33D96A5F2A6839E8006BFFE4 /* HomeViewModel.swift */,
 			);
 			path = "Home View";
 			sourceTree = "<group>";
@@ -229,10 +249,9 @@
 		33D96A652A6839E8006BFFE4 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				33D96A662A6839E8006BFFE4 /* DetailImageView.swift */,
-				33D96A672A6839E8006BFFE4 /* FilterViewModel.swift */,
-				33D96A682A6839E8006BFFE4 /* CameraView.swift */,
+				33BFBF212A69329500F954D6 /* View */,
 				33D96A692A6839E8006BFFE4 /* FilterViewController.swift */,
+				33D96A672A6839E8006BFFE4 /* FilterViewModel.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -240,8 +259,8 @@
 		33D96A6A2A6839E8006BFFE4 /* Menu View */ = {
 			isa = PBXGroup;
 			children = (
-				33D96A6B2A6839E8006BFFE4 /* MenuViewController.xib */,
 				33D96A6C2A6839E8006BFFE4 /* MenuViewController.swift */,
+				33D96A6B2A6839E8006BFFE4 /* MenuViewController.xib */,
 			);
 			path = "Menu View";
 			sourceTree = "<group>";
@@ -445,6 +464,7 @@
 				33D96A8E2A6839E8006BFFE4 /* AppDelegate.swift in Sources */,
 				33D96A982A6839E9006BFFE4 /* FilterViewController.swift in Sources */,
 				33D96A8D2A6839E8006BFFE4 /* ProgressHub+Rx.swift in Sources */,
+				33BFBF1F2A69324500F954D6 /* WebViewViewController.swift in Sources */,
 				33D96AA12A6839E9006BFFE4 /* AppError.swift in Sources */,
 				33D96A882A6839E8006BFFE4 /* ActivityIndicator.swift in Sources */,
 				33D96A962A6839E9006BFFE4 /* FilterViewModel.swift in Sources */,
