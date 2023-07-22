@@ -17,6 +17,7 @@ extension UIButton {
     }
 
     func defaultTap() -> RxSwift.Observable<Void> {
+        dimButton()
         return self.rx.tap.ignoreFastTap()
     }
     

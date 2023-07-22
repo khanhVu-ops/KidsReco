@@ -14,4 +14,6 @@ target 'KidsReco' do
   pod 'ProgressHUD'
   pod 'SwiftGen', '~> 6.0'
   pod "RxGesture"
+  pod 'FirebaseFirestore'
+  pod 'FirebaseStorage'
 end

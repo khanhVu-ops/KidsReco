@@ -19,7 +19,8 @@ class CustomCaptureButton: UIView {
         let btn = UIButton()
         btn.backgroundColor = .clear
         btn.tintColor = .black
-        btn.addTarget(self, action: #selector(didEnter), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(didEnter(_:)), for: .touchUpInside)
+        btn.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(longPressEnter(_:))))
         return btn
     }()
     
@@ -38,18 +39,16 @@ class CustomCaptureButton: UIView {
         }
         
         vCenter.snp.makeConstraints { make in
-            make.top.leading.trailing.bottom.equalToSuperview().inset(2)
+            make.top.leading.trailing.bottom.equalToSuperview().inset(8)
         }
         
         btnEnter.snp.makeConstraints { make in
-            make.top.leading.trailing.bottom.equalToSuperview().inset(-2)
+            make.top.leading.trailing.bottom.equalToSuperview().inset(0)
         }
         
-        self.addBorder(borderWidth: 3, borderColor: .white)
-        self.backgroundColor = .clear
-        
-        vCenter.addBorder(borderWidth: 6, borderColor: .black)
-        self.backgroundColor = .white
+        self.addBorder(borderWidth: 4, borderColor: .white)
+        self.backgroundColor = .black
+        vCenter.backgroundColor = .white
         
     }
     
@@ -61,17 +60,32 @@ class CustomCaptureButton: UIView {
         
     }
     
-    func animateWhenPushEnter() {
+    func animateTapped() {
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) { [weak self] in
-            self?.vCenter.layer.borderWidth = 12
+            self?.vCenter.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         } completion: { [weak self] _ in
-            self?.vCenter.layer.borderWidth = 6
+            self?.vCenter.transform = CGAffineTransform(scaleX: 1, y: 1)
+            if let actionTapEnter = self?.actionTapEnter {
+                actionTapEnter()
+            }
         }
     }
     
-    @objc func didEnter() {
-        if let actionTapEnter = actionTapEnter {
-            actionTapEnter()
+    @objc func didEnter(_ sender: UIButton) {
+        sender.dimButton()
+        animateTapped()
+        
+    }
+    
+    @objc func longPressEnter(_ gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            self.vCenter.animateScale(scale: 0.6)
+        } else if gesture.state == .ended {
+            self.vCenter.animateScale(scale: 1.0)
+            if let actionTapEnter = actionTapEnter {
+                self.btnEnter.dimButton()
+                actionTapEnter()
+            }
         }
     }
     

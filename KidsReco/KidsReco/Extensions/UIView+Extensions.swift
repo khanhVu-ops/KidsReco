@@ -31,6 +31,12 @@ extension UIView {
         }).first as? T
     }
     
+    func animateScale(scale: CGFloat, completion: (() -> Void)? = nil) {
+        UIView.animate(withDuration: 0.2) {
+            self.transform = CGAffineTransform(scaleX: scale, y: scale)
+        }
+    }
+    
     func setCornerRadius(cornerRadius: CGFloat, borderWidth: CGFloat = 0, borderColor: UIColor? = nil) {
         layer.cornerRadius = cornerRadius
         layer.borderWidth = borderWidth

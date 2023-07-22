@@ -335,7 +335,8 @@ class CameraView: UIView {
         
     }
     
-    @objc func btnFlashTapped() {
+    @objc func btnFlashTapped(_ sender: UIButton) {
+        sender.dimButton()
         switch self.outputType {
         case .video:
             let device = self.videoDeviceInput.device
@@ -377,7 +378,8 @@ class CameraView: UIView {
             }
         }
     }
-    @objc func btnSwitchcameraTapped() {
+    @objc func btnSwitchcameraTapped(_ sender: UIButton) {
+        sender.dimButton()
         sessionQueue.async {
             let currentVideoDevice = self.videoDeviceInput.device
             let currentPosition = currentVideoDevice.position

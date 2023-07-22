@@ -30,16 +30,32 @@ class HomeViewController: BaseViewController {
         self.cltvListCategory.dataSource = self
         self.cltvListCategory.delegate = self
     }
+    
+    override func bindViewModel() {
+        self.viewModel.getListCategory()
+            .subscribe(onNext: { [weak self] value in
+                self?.viewModel.listCategory.accept(value)
+            })
+            .disposed(by: disposeBag)
+        
+        self.viewModel.listCategory
+            .subscribe(onNext: { [weak self] _ in
+                DispatchQueue.main.async {
+                    self?.cltvListCategory.reloadData()
+                }
+            })
+            .disposed(by: disposeBag)
+    }
 }
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.listCategory.count
+        return viewModel.listCategory.value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryItemCollectionViewCell.nibNameClass, for: indexPath) as! CategoryItemCollectionViewCell
-        cell.configure(item: self.viewModel.listCategory[indexPath.item])
+        cell.configure(item: self.viewModel.listCategory.value[indexPath.item])
         return cell
     }
        

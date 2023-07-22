@@ -7,10 +7,12 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 class HomeViewModel: BaseViewModel {
-    let listCategory: [CategoryModel] = [CategoryModel(icon: UIImage(named: "animals"), title: "Animals"),
-                                         CategoryModel(icon: UIImage(named: "flowers"), title: "Flowers"),
-                                         CategoryModel(icon: UIImage(named: "plants"), title: "Plants"),
-                                         CategoryModel(icon: UIImage(named: "transports"), title: "Transports"),
-    ]
+    let listCategory = BehaviorRelay<[CategoryModel]>(value: [])
+    
+    func getListCategory() -> Observable<[CategoryModel]> {
+        return FirebaseService.shared.getCategorys()
+    }
 }

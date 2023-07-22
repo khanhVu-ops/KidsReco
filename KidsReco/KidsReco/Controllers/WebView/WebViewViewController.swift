@@ -48,11 +48,13 @@ class WebViewViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(didTapRefresh))
     }
     
-    @objc private func didTapDone() {
+    @objc private func didTapDone(_ sender: UIButton) {
+        sender.dimButton()
         self.dismiss(animated: true, completion: nil)
     }
     
-    @objc private func didTapRefresh() {
+    @objc private func didTapRefresh(_ sender: UIButton) {
+        sender.dimButton()
         webView.load(URLRequest(url: url))
     }
 }

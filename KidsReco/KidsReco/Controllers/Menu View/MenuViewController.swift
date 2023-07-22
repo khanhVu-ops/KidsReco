@@ -13,10 +13,12 @@ class MenuViewController: BaseViewController {
     @IBOutlet weak var vShare: UIView!
     @IBOutlet weak var vTermsAndConditions: UIView!
     @IBOutlet weak var vLastestVersion: UIView!
+    @IBOutlet weak var vAdmin: UIView!
     
     @IBOutlet weak var btnShare: UIButton!
     @IBOutlet weak var btnTermsAndConditions: UIButton!
     @IBOutlet weak var btnLastestVersion: UIButton!
+    @IBOutlet weak var btnAdmin: UIButton!
     @IBOutlet weak var lbLastestVersion: UILabel!
     
     let viewModel = MenuViewModel()
@@ -35,6 +37,8 @@ class MenuViewController: BaseViewController {
         self.vLastestVersion.addConnerRadius(radius: 20)
         self.vLastestVersion.backgroundColor = Constants.Color.bgrItem
         self.lbLastestVersion.text = self.viewModel.getLastestVersion()
+        self.vAdmin.backgroundColor = Constants.Color.bgrItem
+        self.vAdmin.addConnerRadius(radius: 20)
     }
     
     override func setUpTap() {
@@ -47,15 +51,23 @@ class MenuViewController: BaseViewController {
         
         self.btnTermsAndConditions.defaultTap()
             .subscribe(onNext: { [weak self] in
-                self?.btnShare.dimButton()
+                self?.btnTermsAndConditions.dimButton()
                 
             })
             .disposed(by: disposeBag)
         
         self.btnLastestVersion.defaultTap()
             .subscribe(onNext: { [weak self] in
-                self?.btnShare.dimButton()
+                self?.btnLastestVersion.dimButton()
                 
+            })
+            .disposed(by: disposeBag)
+        
+        self.btnAdmin.defaultTap()
+            .subscribe(onNext: { [weak self] in
+                self?.btnAdmin.dimButton()
+                let vc = AdminCategoryViewController()
+                self?.push(vc)
             })
             .disposed(by: disposeBag)
     }

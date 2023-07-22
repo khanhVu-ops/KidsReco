@@ -29,7 +29,7 @@ class CategoryItemCollectionViewCell: UICollectionViewCell {
     }
 
     func configure(item: CategoryModel) {
-        self.lbTitle.text = item.title
-        self.imvCategory.image = item.imvIcon
+        self.lbTitle.text = item.categoryName
+        self.imvCategory.setImage(urlString: item.imageURL, placeHolder: Constants.Image.defaultImage)
     }
 }

@@ -16,7 +16,7 @@ class FilterViewController: BaseViewController {
         let btn = UIButton()
         btn.setImage(Constants.Image.cancelSystem, for: .normal)
         btn.tintColor = .white
-        btn.addTarget(self, action: #selector(btnCancelTapped), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(btnCancelTapped(_:)), for: .touchUpInside)
         return btn
     }()
     
@@ -61,7 +61,7 @@ class FilterViewController: BaseViewController {
         imv.addConnerRadius(radius: 10)
         imv.addBorder(borderWidth: 2, borderColor: .white)
         imv.contentMode = .scaleAspectFill
-        imv.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(btnLibraryTapped)))
+        imv.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(btnLibraryTapped(_:))))
         imv.isUserInteractionEnabled = true
         return imv
     }()
@@ -72,7 +72,7 @@ class FilterViewController: BaseViewController {
         btn.setBackgroundImage(Constants.Image.reloadSystem, for: .normal)
         btn.tintColor = .white
         btn.addConnerRadius(radius: 10)
-        btn.addTarget(self, action: #selector(btnReloadTapped), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(btnReloadTapped(_:)), for: .touchUpInside)
         btn.isHidden = true
         return btn
     }()
@@ -246,10 +246,8 @@ class FilterViewController: BaseViewController {
             }
         }
         
-        
         self.vCapture.actionTapEnter = { [weak self] in
             if self?.isCaptured == false {
-                self?.vCapture.animateWhenPushEnter()
                 if self?.cameraView.outputType == .video {
                     self?.cameraView.isCapture = true
                 } else {
@@ -275,7 +273,7 @@ class FilterViewController: BaseViewController {
         }
         
         self.cameraView.actionCaptureImage = { [weak self] image in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+            DispatchQueue.main.async {
                 self?.detailView.setImage(with: image)
                 self?.updateUIWhenCaptured(isCaptured: true)
                 DispatchQueue.global().sync {
@@ -291,7 +289,7 @@ class FilterViewController: BaseViewController {
                         print("cant perform predict: ", error)
                     }
                 }
-            })
+            }
         }
         
         self.cameraView.actionGetFrameCamera = { [weak self] frame in
@@ -379,20 +377,22 @@ class FilterViewController: BaseViewController {
     }
 
     
-    @objc func btnCancelTapped() {
+    @objc func btnCancelTapped(_ sender: UIButton) {
+        sender.dimButton()
         self.tabbarDelegate?.goToViewController(with: 0, isHideTabbar: false)
     }
     
-    @objc func btnLibraryTapped() {
+    @objc func btnLibraryTapped(_ sender: UIButton) {
+        sender.dimButton()
         self.openLibrary()
     }
     
-    @objc func btnReloadTapped() {
+    @objc func btnReloadTapped(_ sender: UIButton) {
+        sender.dimButton()
         self.updateUIWhenCaptured(isCaptured: false)
     }
     
     func updateUIWhenCaptured(isCaptured: Bool) {
-        isCaptured ? self.cameraView.stopSession() : self.cameraView.startSession()
         self.cameraView.isHidden = isCaptured
         self.detailView.isHidden = !isCaptured
         self.isCaptured = isCaptured
