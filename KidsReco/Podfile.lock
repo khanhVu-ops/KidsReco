@@ -3,6 +3,9 @@ PODS:
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
+  - RxGesture (4.0.4):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
@@ -10,35 +13,42 @@ PODS:
     - SDWebImage/Core (= 5.15.7)
   - SDWebImage/Core (5.15.7)
   - SnapKit (5.6.0)
+  - SwiftGen (6.6.2)
   - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
   - ProgressHUD
   - RxCocoa (= 6.5.0)
+  - RxGesture
   - RxSwift (= 6.5.0)
   - SDWebImage
   - SnapKit
+  - SwiftGen (~> 6.0)
   - Toast-Swift
 
 SPEC REPOS:
   trunk:
     - ProgressHUD
     - RxCocoa
+    - RxGesture
     - RxRelay
     - RxSwift
     - SDWebImage
     - SnapKit
+    - SwiftGen
     - Toast-Swift
 
 SPEC CHECKSUMS:
   ProgressHUD: 355915c8f033e626788fa9b0d99d06e8691595ab
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SDWebImage: 25bac438318faf37e35650619ebc288a9061d292
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwiftGen: 1366a7f71aeef49954ca5a63ba4bef6b0f24138c
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: e96454d5e3bebd0c2433e40e826e9070e26278b3
+PODFILE CHECKSUM: 23ebed44de4a372e7139dfc76381d26426028792
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.11.3
