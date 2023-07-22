@@ -12,4 +12,6 @@ target 'KidsReco' do
   pod 'Toast-Swift'
   pod 'SnapKit'
   pod 'ProgressHUD'
+  pod 'SwiftGen', '~> 6.0'
+  pod "RxGesture"
 end
