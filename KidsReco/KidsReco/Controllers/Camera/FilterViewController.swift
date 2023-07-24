@@ -254,11 +254,7 @@ class FilterViewController: BaseViewController {
                     self?.showAlertSetting(title: "App", message: "Not mode Photos")
                 }
             } else {
-                guard let url = URL(string: "https://en.wikipedia.org/wiki/Tulip") else {
-                    return
-                }
-                
-                let webVC = WebViewViewController(url: url, title: "Rose Flower")
+                let webVC = WikiWebViewViewController(title: "rose")
                 let navWeb = UINavigationController(rootViewController: webVC)
                 self?.present(navWeb, animated: true, completion: nil)
             }

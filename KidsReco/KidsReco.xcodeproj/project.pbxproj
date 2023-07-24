@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		334587AF2A6D7376003E7E2A /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334587AD2A6D7376003E7E2A /* TagCollectionViewCell.swift */; };
+		334587B02A6D7376003E7E2A /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 334587AE2A6D7376003E7E2A /* TagCollectionViewCell.xib */; };
 		335859B42A6AECAB00E1CDF8 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335859B22A6AECAA00E1CDF8 /* AdminViewController.swift */; };
 		335859B52A6AECAB00E1CDF8 /* AdminViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 335859B32A6AECAB00E1CDF8 /* AdminViewController.xib */; };
 		336753332A6BCD8100DD772A /* AdminCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336753312A6BCD8100DD772A /* AdminCategoryViewController.swift */; };
@@ -18,8 +20,11 @@
 		336753402A6BD41500DD772A /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3367533E2A6BD41500DD772A /* FirebaseService.swift */; };
 		336753422A6BD64A00DD772A /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336753412A6BD64A00DD772A /* TagModel.swift */; };
 		336753442A6BE5C700DD772A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 336753432A6BE5C700DD772A /* GoogleService-Info.plist */; };
+		338C2B552A6D6ABF00B786A8 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338C2B532A6D6ABF00B786A8 /* TagsViewController.swift */; };
+		338C2B562A6D6ABF00B786A8 /* TagsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 338C2B542A6D6ABF00B786A8 /* TagsViewController.xib */; };
+		338C2B582A6D6ACB00B786A8 /* TagsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338C2B572A6D6ACB00B786A8 /* TagsViewModel.swift */; };
 		33B7858B2A6AFCDD0096846E /* AdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B7858A2A6AFCDD0096846E /* AdminViewModel.swift */; };
-		33BFBF1F2A69324500F954D6 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BFBF1E2A69324500F954D6 /* WebViewViewController.swift */; };
+		33BFBF1F2A69324500F954D6 /* WikiWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BFBF1E2A69324500F954D6 /* WikiWebViewViewController.swift */; };
 		33C8BC0A2A69B12900B76793 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C8BC092A69B12900B76793 /* MenuViewModel.swift */; };
 		33D96A3E2A6839A6006BFFE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D96A3C2A6839A6006BFFE4 /* LaunchScreen.storyboard */; };
 		33D96A7B2A6839E8006BFFE4 /* Flower_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 33D96A452A6839E8006BFFE4 /* Flower_model.mlmodel */; };
@@ -84,6 +89,8 @@
 
 /* Begin PBXFileReference section */
 		0C3BFAB2BE07CC973E0308B8 /* Pods-KidsReco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidsReco.debug.xcconfig"; path = "Target Support Files/Pods-KidsReco/Pods-KidsReco.debug.xcconfig"; sourceTree = "<group>"; };
+		334587AD2A6D7376003E7E2A /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		334587AE2A6D7376003E7E2A /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
 		335859B22A6AECAA00E1CDF8 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		335859B32A6AECAB00E1CDF8 /* AdminViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminViewController.xib; sourceTree = "<group>"; };
 		336753312A6BCD8100DD772A /* AdminCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminCategoryViewController.swift; sourceTree = "<group>"; };
@@ -95,8 +102,11 @@
 		3367533E2A6BD41500DD772A /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		336753412A6BD64A00DD772A /* TagModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagModel.swift; sourceTree = "<group>"; };
 		336753432A6BE5C700DD772A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		338C2B532A6D6ABF00B786A8 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
+		338C2B542A6D6ABF00B786A8 /* TagsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagsViewController.xib; sourceTree = "<group>"; };
+		338C2B572A6D6ACB00B786A8 /* TagsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewModel.swift; sourceTree = "<group>"; };
 		33B7858A2A6AFCDD0096846E /* AdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewModel.swift; sourceTree = "<group>"; };
-		33BFBF1E2A69324500F954D6 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
+		33BFBF1E2A69324500F954D6 /* WikiWebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiWebViewViewController.swift; sourceTree = "<group>"; };
 		33C8BC092A69B12900B76793 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		33D96A2E2A6839A4006BFFE4 /* KidsReco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsReco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33D96A3D2A6839A6006BFFE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -174,6 +184,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		334587AC2A6D7363003E7E2A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				334587AD2A6D7376003E7E2A /* TagCollectionViewCell.swift */,
+				334587AE2A6D7376003E7E2A /* TagCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		335859B12A6AEC7800E1CDF8 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,10 +232,21 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		338C2B522A6D6A8F00B786A8 /* TagsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				334587AC2A6D7363003E7E2A /* Cell */,
+				338C2B532A6D6ABF00B786A8 /* TagsViewController.swift */,
+				338C2B542A6D6ABF00B786A8 /* TagsViewController.xib */,
+				338C2B572A6D6ACB00B786A8 /* TagsViewModel.swift */,
+			);
+			path = TagsViewController;
+			sourceTree = "<group>";
+		};
 		33BFBF202A69324F00F954D6 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
-				33BFBF1E2A69324500F954D6 /* WebViewViewController.swift */,
+				33BFBF1E2A69324500F954D6 /* WikiWebViewViewController.swift */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -312,6 +342,7 @@
 		33D96A5D2A6839E8006BFFE4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				338C2B522A6D6A8F00B786A8 /* TagsViewController */,
 				E217075E2A6943CF0051E7DE /* DetailViewController */,
 				33D96A6D2A6839E8006BFFE4 /* MainTabbarController.swift */,
 				33D96A6E2A6839E8006BFFE4 /* Base */,
@@ -526,12 +557,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				335859B52A6AECAB00E1CDF8 /* AdminViewController.xib in Resources */,
+				334587B02A6D7376003E7E2A /* TagCollectionViewCell.xib in Resources */,
 				33D96A3E2A6839A6006BFFE4 /* LaunchScreen.storyboard in Resources */,
 				E21707622A69440B0051E7DE /* DetailViewController.xib in Resources */,
 				336753442A6BE5C700DD772A /* GoogleService-Info.plist in Resources */,
 				33D96A932A6839E9006BFFE4 /* CategoryItemCollectionViewCell.xib in Resources */,
 				E2CD34B22A699CC8005F3D70 /* Localizable.strings in Resources */,
 				33D96A912A6839E8006BFFE4 /* HomeViewController.xib in Resources */,
+				338C2B562A6D6ABF00B786A8 /* TagsViewController.xib in Resources */,
 				336753342A6BCD8100DD772A /* AdminCategoryViewController.xib in Resources */,
 				33D96A992A6839E9006BFFE4 /* MenuViewController.xib in Resources */,
 				E2CD34BB2A69BCBA005F3D70 /* ImageCollectionViewCell.xib in Resources */,
@@ -592,6 +625,7 @@
 				33D96A8C2A6839E8006BFFE4 /* Timestamp+Extensions.swift in Sources */,
 				3367533F2A6BD41500DD772A /* BaseFirebaseService.swift in Sources */,
 				33D96A902A6839E8006BFFE4 /* HomeViewModel.swift in Sources */,
+				334587AF2A6D7376003E7E2A /* TagCollectionViewCell.swift in Sources */,
 				33D96A9F2A6839E9006BFFE4 /* ImageCache.swift in Sources */,
 				33D96A9B2A6839E9006BFFE4 /* MainTabbarController.swift in Sources */,
 				33D96A8B2A6839E8006BFFE4 /* UIlabel+Extensions.swift in Sources */,
@@ -616,6 +650,7 @@
 				33D96AA52A6839E9006BFFE4 /* Toast.swift in Sources */,
 				E2CD34BA2A69BCB9005F3D70 /* ImageCollectionViewCell.swift in Sources */,
 				33D96A8F2A6839E8006BFFE4 /* SceneDelegate.swift in Sources */,
+				338C2B582A6D6ACB00B786A8 /* TagsViewModel.swift in Sources */,
 				E21707642A6947160051E7DE /* CustomNavigationHeaderView.swift in Sources */,
 				33D96A942A6839E9006BFFE4 /* CategoryItemCollectionViewCell.swift in Sources */,
 				33D96A952A6839E9006BFFE4 /* DetailImageView.swift in Sources */,
@@ -624,7 +659,8 @@
 				E20BDAA52A6BDD1A0012B334 /* File.swift in Sources */,
 				33D96A982A6839E9006BFFE4 /* FilterViewController.swift in Sources */,
 				33D96A8D2A6839E8006BFFE4 /* ProgressHub+Rx.swift in Sources */,
-				33BFBF1F2A69324500F954D6 /* WebViewViewController.swift in Sources */,
+				338C2B552A6D6ABF00B786A8 /* TagsViewController.swift in Sources */,
+				33BFBF1F2A69324500F954D6 /* WikiWebViewViewController.swift in Sources */,
 				33D96AA12A6839E9006BFFE4 /* AppError.swift in Sources */,
 				E2C5C50C2A6A330A00322CDF /* AnimalModel.swift in Sources */,
 				33D96A882A6839E8006BFFE4 /* ActivityIndicator.swift in Sources */,

@@ -56,6 +56,12 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryItemCollectionViewCell.nibNameClass, for: indexPath) as! CategoryItemCollectionViewCell
         cell.configure(item: self.viewModel.listCategory.value[indexPath.item])
+        cell.actionOpenDetailTapped = { [weak self] id, title in
+            let vc = TagsViewController()
+            vc.viewModel.categoryID = id
+            vc.viewModel.title.accept(title)
+            self?.push(vc)
+        }
         return cell
     }
        
@@ -72,8 +78,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         return 20
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = DetailViewController()
-        self.push(vc)
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let vc = DetailViewController()
+//        self.push(vc)
+//    }
 }

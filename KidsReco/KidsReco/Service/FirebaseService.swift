@@ -37,7 +37,7 @@ final class FirebaseService: BaseFirebaseService {
     
     func getTags(categoryID: String) -> Observable<[TagModel]> {
         let path = fireStore.collection(categoryClt).document(categoryID).collection(tagsClt)
-        return self.rxRequestCollection(path: path, isListener: true)
+        return self.rxRequestCollection(path: path, isListener: false)
     }
     
     func uploadImage(image: UIImage?, fileName: String?) -> Observable<String> {
@@ -64,5 +64,10 @@ final class FirebaseService: BaseFirebaseService {
             let ref = fireStore.collection(categoryClt).document(categoryID)
             ref.updateData(["imageURL": url])
         }
+    }
+    
+    func updateStatusFavorite(categoryID: String, tagID: String, isFavorite: Bool) {
+        let ref = fireStore.collection(categoryClt).document(categoryID).collection(tagsClt).document(tagID)
+        ref.updateData(["isFavorite": isFavorite])
     }
 }

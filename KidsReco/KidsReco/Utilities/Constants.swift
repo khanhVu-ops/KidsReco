@@ -25,6 +25,12 @@ struct Constants {
         static let flashSystem = UIImage(systemName: "bolt.fill")!
         static let reloadSystem = UIImage(systemName: "arrow.counterclockwise")!
         static let checkMarkSystem = UIImage(systemName: "checkmark")!
+        static let nextSystem = UIImage(systemName: "chevron.right")!
+        static let speakerSystem = UIImage(systemName: "speaker.wave.2.fill")!
+        static let wikiSystem = UIImage(systemName: "doc.plaintext")!
+        static let heartFillSystem = UIImage(systemName: "heart.fill")!
+
+        static let heartSystem = UIImage(systemName: "heart")!
         static let defaultImage = UIImage(named: "image")!
     }
     
