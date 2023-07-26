@@ -137,7 +137,7 @@ class TagsViewController: BaseViewController {
         guard let tagName = self.viewModel.listTags.value[self.viewModel.currentIndex].tagName else {
             return
         }
-        let wikiVC = WikiWebViewViewController(title: tagName)
+        let wikiVC = WikiWebViewViewController(title: tagName.preHandleURL())
         let navWeb = UINavigationController(rootViewController: wikiVC)
         self.present(navWeb, animated: true, completion: nil)
     }

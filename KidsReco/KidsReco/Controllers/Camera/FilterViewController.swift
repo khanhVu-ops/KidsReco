@@ -254,7 +254,8 @@ class FilterViewController: BaseViewController {
                     self?.showAlertSetting(title: "App", message: "Not mode Photos")
                 }
             } else {
-                let webVC = WikiWebViewViewController(title: self?.lbIdentifier.text ?? "")
+                let tagName = self?.lbIdentifier.text ?? ""
+                let webVC = WikiWebViewViewController(title: tagName.preHandleURL())
                 let navWeb = UINavigationController(rootViewController: webVC)
                 self?.present(navWeb, animated: true, completion: nil)
             }

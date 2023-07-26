@@ -22,6 +22,10 @@ extension String {
         return false
     }
     
+    func preHandleURL() -> String {
+        return self.replacingOccurrences(of: " ", with: "_")
+    }
+    
     func detectAndStyleLinks(foregroundColor: UIColor, fontSize: CGFloat) -> NSAttributedString {
         // Create an NSMutableAttributedString from the input string
         let attributedString = NSMutableAttributedString(string: self)
