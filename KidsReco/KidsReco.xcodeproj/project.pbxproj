@@ -74,8 +74,6 @@
 		E21707642A6947160051E7DE /* CustomNavigationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21707632A6947160051E7DE /* CustomNavigationHeaderView.swift */; };
 		E2C5C50C2A6A330A00322CDF /* AnimalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5C50B2A6A330A00322CDF /* AnimalModel.swift */; };
 		E2CD34B22A699CC8005F3D70 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2CD34B12A699CC8005F3D70 /* Localizable.strings */; };
-		E2CD34B52A699D57005F3D70 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CD34B42A699D57005F3D70 /* Strings.swift */; };
-		E2CD34B72A699D70005F3D70 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CD34B62A699D70005F3D70 /* Assets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,8 +148,6 @@
 		E21707632A6947160051E7DE /* CustomNavigationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationHeaderView.swift; sourceTree = "<group>"; };
 		E2C5C50B2A6A330A00322CDF /* AnimalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalModel.swift; sourceTree = "<group>"; };
 		E2CD34B12A699CC8005F3D70 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		E2CD34B42A699D57005F3D70 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
-		E2CD34B62A699D70005F3D70 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,7 +275,6 @@
 				33D96A472A6839E8006BFFE4 /* Models */,
 				33D96A5D2A6839E8006BFFE4 /* Controllers */,
 				33D96AAC2A683D5E006BFFE4 /* mlmodel */,
-				E2CD34B32A699D3F005F3D70 /* Generated */,
 				E2CD34B02A699A96005F3D70 /* Resources */,
 				33D96A3C2A6839A6006BFFE4 /* LaunchScreen.storyboard */,
 				33D96AAA2A683AA1006BFFE4 /* Info.plist */,
@@ -452,15 +447,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		E2CD34B32A699D3F005F3D70 /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				E2CD34B42A699D57005F3D70 /* Strings.swift */,
-				E2CD34B62A699D70005F3D70 /* Assets.swift */,
-			);
-			path = Generated;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -616,7 +602,6 @@
 				E21707642A6947160051E7DE /* CustomNavigationHeaderView.swift in Sources */,
 				33D96A942A6839E9006BFFE4 /* CategoryItemCollectionViewCell.swift in Sources */,
 				33D96A952A6839E9006BFFE4 /* DetailImageView.swift in Sources */,
-				E2CD34B52A699D57005F3D70 /* Strings.swift in Sources */,
 				33D96A8E2A6839E8006BFFE4 /* AppDelegate.swift in Sources */,
 				33D96A982A6839E9006BFFE4 /* FilterViewController.swift in Sources */,
 				33D96A8D2A6839E8006BFFE4 /* ProgressHub+Rx.swift in Sources */,
@@ -639,7 +624,6 @@
 				33D96A852A6839E8006BFFE4 /* UIColor+Extensions.swift in Sources */,
 				33B7858B2A6AFCDD0096846E /* AdminViewModel.swift in Sources */,
 				33D96A822A6839E8006BFFE4 /* PHAsset+Extensions.swift in Sources */,
-				E2CD34B72A699D70005F3D70 /* Assets.swift in Sources */,
 				335859B42A6AECAB00E1CDF8 /* AdminViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

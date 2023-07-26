@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import RxGesture
+
 class TagsViewController: BaseViewController {
 
     @IBOutlet weak var btnBack: UIButton!
