@@ -7,7 +7,6 @@
 
 import UIKit
 import RxGesture
-import AVFoundation
 class TagsViewController: BaseViewController {
 
     @IBOutlet weak var btnBack: UIButton!
@@ -22,10 +21,10 @@ class TagsViewController: BaseViewController {
     @IBOutlet weak var lbTagName: UILabel!
     
     let viewModel = TagsViewModel()
-    let synthesizer = AVSpeechSynthesizer()
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.viewModel.setUpSpeaker()
     }
     
     override func setUpUI() {
@@ -61,8 +60,7 @@ class TagsViewController: BaseViewController {
                     return
                 }
                 self.btnPrevious.dimButton()
-                self.viewModel.currentIndex -= 1
-                self.scrollToIndex(index: self.viewModel.currentIndex, isAnimate: true)
+                self.viewModel.handleBtnDrag(collectionView: self.cltvListTags, isNext: false)
             })
             .disposed(by: disposeBag)
         
@@ -72,15 +70,14 @@ class TagsViewController: BaseViewController {
                     return
                 }
                 self.btnNext.dimButton()
-                self.viewModel.currentIndex += 1
-                self.scrollToIndex(index: self.viewModel.currentIndex, isAnimate: true)
+                self.viewModel.handleBtnDrag(collectionView: self.cltvListTags, isNext: true)
             })
             .disposed(by: disposeBag)
         
         btnSpeaker.defaultTap()
             .subscribe(onNext: { [weak self] in
                 self?.btnSpeaker.dimButton()
-                self?.speakText()
+                self?.viewModel.speakText()
             })
             .disposed(by: disposeBag)
         
@@ -110,25 +107,19 @@ class TagsViewController: BaseViewController {
         
         self.viewModel.listTags
             .subscribe(onNext: { [weak self] value in
-                if value.count > 0 {
-                    DispatchQueue.main.async {
-                        self?.cltvListTags.reloadData()
-                        let indexPath = IndexPath(item: 2, section: 0)
-                        self?.cltvListTags.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-                        self?.updateUIWithIndex(index: 2)
-                    }
+                guard let self = self, value.count > 0 else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.cltvListTags.reloadData()
+                    self.viewModel.scrollToIndex(collectionView: self.cltvListTags, index: self.viewModel.currentIndex, isAnimate: false)
+                    self.updateUIWithIndex(index: self.viewModel.currentIndex)
                 }
             })
             .disposed(by: disposeBag)
         
         self.viewModel.title.bind(to: self.lbTitle.rx.text)
             .disposed(by: disposeBag)
-    }
-    
-    
-    func scrollToIndex(index: Int, isAnimate: Bool) {
-        let indexPath = IndexPath(item: index, section: 0)
-        self.cltvListTags.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: isAnimate)
     }
 
     func updateUIWithIndex(index: Int) {
@@ -158,21 +149,6 @@ class TagsViewController: BaseViewController {
         
         self.updateUIBtnHeart(isFavorite: !isFavoite)
         self.viewModel.updateStatusFavorite(isFavorite: !isFavoite)
-    }
-    
-    // Function to speak the entered text
-    func speakText() {
-        guard let tagName = self.viewModel.listTags.value[self.viewModel.currentIndex].tagName else {
-            return
-        }
-        // Create an AVSpeechUtterance with the provided text
-        let utterance = AVSpeechUtterance(string: tagName)
-        
-        // Select a voice for speech synthesis (optional)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        
-        // Speak the text using the speech synthesizer
-        synthesizer.speak(utterance)
     }
 }
 
@@ -205,18 +181,18 @@ extension TagsViewController: UICollectionViewDataSource, UICollectionViewDelega
         } else if scrollView.contentOffset.x < self.viewModel.initialContentOffset.x {
             self.viewModel.currentIndex -= 1
         }
-        scrollToIndex(index: self.viewModel.currentIndex, isAnimate: true)
+        self.viewModel.scrollToIndex(collectionView: self.cltvListTags, index: self.viewModel.currentIndex, isAnimate: true)
         targetContentOffset.pointee = scrollView.contentOffset
         updateUIWithIndex(index: self.viewModel.currentIndex)
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        if self.viewModel.currentIndex == 1 {
-            self.viewModel.currentIndex = self.viewModel.listTags.value.count - 3
-            scrollToIndex(index: self.viewModel.currentIndex, isAnimate: false)
-        } else if self.viewModel.currentIndex == self.viewModel.listTags.value.count - 2 {
-            self.viewModel.currentIndex = 2
-            scrollToIndex(index: self.viewModel.currentIndex, isAnimate: false)
+        if self.viewModel.currentIndex == self.viewModel.indexFirstTag - 1 {
+            self.viewModel.currentIndex = self.viewModel.indexLastTag
+            self.viewModel.scrollToIndex(collectionView: self.cltvListTags, index: self.viewModel.currentIndex, isAnimate: false)
+        } else if self.viewModel.currentIndex == self.viewModel.indexLastTag + 1 {
+            self.viewModel.currentIndex = self.viewModel.indexFirstTag
+            self.viewModel.scrollToIndex(collectionView: self.cltvListTags, index: self.viewModel.currentIndex, isAnimate: false)
         }
         updateUIWithIndex(index: self.viewModel.currentIndex)
     }

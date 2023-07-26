@@ -48,7 +48,6 @@ final class FirebaseService: BaseFirebaseService {
             } failure: { message in
                 observable.onError(AppError(code: .firebase, message: message))
             }
-
             return Disposables.create()
         }
     }

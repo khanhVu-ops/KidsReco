@@ -16,7 +16,6 @@ class MainTabbarController: UITabBarController {
     private lazy var imvScan: UIImageView = {
         let imv = UIImageView()
         imv.image = UIImage(named: "ic_scan")?.resize(with: CGSize(width: 25, height: 25))
-//        imv.contentMode = .scaleAspectFit
         imv.contentMode = .scaleAspectFill
         
         return imv
@@ -41,7 +40,6 @@ class MainTabbarController: UITabBarController {
         
         self.tabBar.tintColor = .blue
         self.tabBar.unselectedItemTintColor = .darkGray
-        // Xác định các tab bar items
         let homeVC = HomeViewController()
         let cameraVC = FilterViewController()
         cameraVC.tabbarDelegate = self
@@ -64,22 +62,18 @@ class MainTabbarController: UITabBarController {
         imvScan.backgroundColor = Constants.Color.bgrItem
         tabBar.bringSubviewToFront(imvScan)
         viewControllers = [homeVC, cameraVC, menuVC]
-        // Do any additional setup after loading the view.
     }
 }
 
 extension MainTabbarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        // Lấy index của view controller đã chọn
-        if let index = tabBarController.viewControllers?.firstIndex(of: viewController) {
-            // Kiểm tra nếu index của tab bar item đã chọn là 1
-            if index == 1 {
-                // Ẩn tab bar
-                tabBarController.tabBar.isHidden = true
-            } else {
-                // Hiển thị tab bar
-                tabBarController.tabBar.isHidden = false
-            }
+        guard let index = tabBarController.viewControllers?.firstIndex(of: viewController)  else {
+            return
+        }
+        if index == 1 {
+            tabBarController.tabBar.isHidden = true
+        } else {
+            tabBarController.tabBar.isHidden = false
         }
     }
 }

@@ -26,7 +26,6 @@ class MenuViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
     }
     
     override func setUpUI() {
@@ -45,21 +44,18 @@ class MenuViewController: BaseViewController {
         self.btnShare.defaultTap()
             .subscribe(onNext: { [weak self] in
                 self?.btnShare.dimButton()
-                
             })
             .disposed(by: disposeBag)
         
         self.btnTermsAndConditions.defaultTap()
             .subscribe(onNext: { [weak self] in
                 self?.btnTermsAndConditions.dimButton()
-                
             })
             .disposed(by: disposeBag)
         
         self.btnLastestVersion.defaultTap()
             .subscribe(onNext: { [weak self] in
                 self?.btnLastestVersion.dimButton()
-                
             })
             .disposed(by: disposeBag)
         

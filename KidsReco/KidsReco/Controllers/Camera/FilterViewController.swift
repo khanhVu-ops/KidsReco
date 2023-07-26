@@ -254,7 +254,7 @@ class FilterViewController: BaseViewController {
                     self?.showAlertSetting(title: "App", message: "Not mode Photos")
                 }
             } else {
-                let webVC = WikiWebViewViewController(title: "rose")
+                let webVC = WikiWebViewViewController(title: self?.lbIdentifier.text ?? "")
                 let navWeb = UINavigationController(rootViewController: webVC)
                 self?.present(navWeb, animated: true, completion: nil)
             }
@@ -311,7 +311,7 @@ class FilterViewController: BaseViewController {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             
             // load model với VNCoreMLModel
-            guard let model = try? VNCoreMLModel(for: Flower_model(configuration: MLModelConfiguration()).model) else {
+            guard let model = try? VNCoreMLModel(for: kidsReco1(configuration: MLModelConfiguration()).model) else {
                 fatalError("Model initilation failed!")
             }
             // tạo request
