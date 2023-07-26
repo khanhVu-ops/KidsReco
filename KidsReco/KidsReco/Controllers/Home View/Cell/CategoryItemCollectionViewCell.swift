@@ -9,6 +9,7 @@ import UIKit
 
 class CategoryItemCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var vBorderCell: UIView!
     @IBOutlet weak var imvCategory: UIImageView!
     @IBOutlet weak var lbTitle: UILabel!
     var actionOpenDetailTapped: ((String, String) -> Void)?
@@ -25,10 +26,12 @@ class CategoryItemCollectionViewCell: UICollectionViewCell {
     }
     
     func setupUI() {
+        self.backgroundColor = .white
+        self.layer.cornerRadius = 15
+        self.vBorderCell.backgroundColor = .white
+        self.vBorderCell.addShadowwWith(radius: 15, borderColor: .gray, borderWidth: 1, shadowColor: .black, shadowOpacity: 0.3, shadowRadius: 4, shadowOffset: CGSize(width: 2, height: 2))
         self.lbTitle.textColor = Constants.Color.textColor
-        self.backgroundColor = Constants.Color.bgrItem
-        self.addConnerRadius(radius: 15)
-        
+
     }
 
     func configure(item: CategoryModel) {

@@ -42,8 +42,8 @@ class TagsViewModel: BaseViewModel {
         let count = array.count
         if count > 2 {
             newArray = [array[count-2], array[count-1]] + array + [array[0], array[1]]
+            self.indexLastTag = newArray.count - 3
         }
-        self.indexLastTag = newArray.count - 3
         return newArray
     }
     

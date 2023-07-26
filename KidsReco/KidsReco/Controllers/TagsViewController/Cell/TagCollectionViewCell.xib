@@ -17,16 +17,16 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vlD-J6-esc">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <rect key="frame" x="10" y="10" width="30" height="30"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="vlD-J6-esc" secondAttribute="trailing" id="Q3s-1b-ZYu"/>
-                <constraint firstAttribute="bottom" secondItem="vlD-J6-esc" secondAttribute="bottom" id="TWO-Ab-WHE"/>
-                <constraint firstItem="vlD-J6-esc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="lK2-V7-7bw"/>
-                <constraint firstItem="vlD-J6-esc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="p2A-hl-CFA"/>
+                <constraint firstAttribute="trailing" secondItem="vlD-J6-esc" secondAttribute="trailing" constant="10" id="Q3s-1b-ZYu"/>
+                <constraint firstAttribute="bottom" secondItem="vlD-J6-esc" secondAttribute="bottom" constant="10" id="TWO-Ab-WHE"/>
+                <constraint firstItem="vlD-J6-esc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="lK2-V7-7bw"/>
+                <constraint firstItem="vlD-J6-esc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="p2A-hl-CFA"/>
             </constraints>
             <connections>
                 <outlet property="imvTag" destination="vlD-J6-esc" id="FjT-m0-sjP"/>

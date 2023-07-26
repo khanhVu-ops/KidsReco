@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class AdminViewController: BaseViewController {
 
@@ -103,10 +104,12 @@ class AdminViewController: BaseViewController {
     
     func addTag(name: String, url: String) {
         let item = TagModel(tagName: name, imageURL: url)
-        self.viewModel.addTag(item: item)
+        return self.viewModel.addTag(item: item)
             .subscribe(onNext: { [weak self] _ in
                 DispatchQueue.main.async {
                     Toast.show("Add tag susscess")
+                    self?.tfTagName.text = nil
+                    self?.imv.image = nil
                 }
             })
             .disposed(by: disposeBag)

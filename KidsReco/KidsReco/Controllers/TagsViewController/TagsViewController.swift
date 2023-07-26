@@ -107,7 +107,7 @@ class TagsViewController: BaseViewController {
         
         self.viewModel.listTags
             .subscribe(onNext: { [weak self] value in
-                guard let self = self, value.count > 0 else {
+                guard let self = self, value.count > 2 else {
                     return
                 }
                 DispatchQueue.main.async {
@@ -168,7 +168,7 @@ extension TagsViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return 10
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

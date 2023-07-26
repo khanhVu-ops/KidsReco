@@ -58,6 +58,13 @@ extension UIView {
         layer.masksToBounds = false
     }
     
+    func addShadowwWith(radius: CGFloat, borderColor: UIColor, borderWidth: CGFloat, shadowColor: UIColor, shadowOpacity: Float, shadowRadius: CGFloat, shadowOffset: CGSize) {
+        self.layer.cornerRadius = radius
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.borderWidth = borderWidth
+        self.addShadow(color: shadowColor, opacity: shadowOpacity, radius: shadowRadius, offset: shadowOffset)
+    }
+    
     func addConnerRadius(radius: CGFloat) {
         layer.cornerRadius = radius
         layer.masksToBounds = true

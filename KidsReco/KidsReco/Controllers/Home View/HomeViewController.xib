@@ -44,7 +44,7 @@
                     <rect key="frame" x="0.0" y="84" width="414" height="778"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gGu-YR-wJC">
-                            <rect key="frame" x="15" y="10" width="384" height="767"/>
+                            <rect key="frame" x="5" y="10" width="404" height="767"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="GA5-2f-lPJ">
                                 <size key="itemSize" width="128" height="128"/>
@@ -64,11 +64,11 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="Qcl-ae-z9r" firstAttribute="leading" secondItem="BbF-nx-L4c" secondAttribute="leading" id="KIK-ah-OeM"/>
-                        <constraint firstAttribute="trailing" secondItem="gGu-YR-wJC" secondAttribute="trailing" constant="15" id="byI-rb-xzH"/>
+                        <constraint firstAttribute="trailing" secondItem="gGu-YR-wJC" secondAttribute="trailing" constant="5" id="byI-rb-xzH"/>
                         <constraint firstAttribute="trailing" secondItem="Qcl-ae-z9r" secondAttribute="trailing" id="hIb-0l-OK3"/>
                         <constraint firstItem="Qcl-ae-z9r" firstAttribute="top" secondItem="gGu-YR-wJC" secondAttribute="bottom" id="lzW-Ws-TZV"/>
                         <constraint firstAttribute="bottom" secondItem="Qcl-ae-z9r" secondAttribute="bottom" id="nhx-U7-NHH"/>
-                        <constraint firstItem="gGu-YR-wJC" firstAttribute="leading" secondItem="BbF-nx-L4c" secondAttribute="leading" constant="15" id="tqp-NV-tcd"/>
+                        <constraint firstItem="gGu-YR-wJC" firstAttribute="leading" secondItem="BbF-nx-L4c" secondAttribute="leading" constant="5" id="tqp-NV-tcd"/>
                         <constraint firstItem="gGu-YR-wJC" firstAttribute="top" secondItem="BbF-nx-L4c" secondAttribute="top" constant="10" id="w2A-GW-dNg"/>
                     </constraints>
                 </view>
