@@ -18,7 +18,7 @@ class TagsViewModel: BaseViewModel {
     var indexFirstTag = 2
     var indexLastTag = 0
     var initialContentOffset: CGPoint = .zero
-    
+    var listFavorite: [Bool] = []
     private lazy var synthesizer = AVSpeechSynthesizer()
 
     func getListTag() -> Observable<[TagModel]> {
@@ -28,13 +28,16 @@ class TagsViewModel: BaseViewModel {
             .asObservable()
     }
     
-    func updateStatusFavorite(isFavorite: Bool) {
-        let item = listTags.value[currentIndex]
-        guard let tagID = item.id else {
-            return
-        }
-        self.listTags.value[currentIndex].isFavorite = isFavorite
-        FirebaseService.shared.updateStatusFavorite(categoryID: categoryID, tagID: tagID, isFavorite: isFavorite)
+    func getListFavorite(for key: String) {
+        self.listFavorite = UserDefaultManager.shared.getFavorite(for: key)
+    }
+    
+    func saveListFavorite() {
+        UserDefaultManager.shared.setFavorite(newArray: self.listFavorite, for: self.title.value)
+    }
+    
+    func btnHeartToggle() {
+        self.listFavorite[self.currentIndex].toggle()
     }
     
     func preHandle(array: [TagModel]) -> [TagModel] {
@@ -43,6 +46,9 @@ class TagsViewModel: BaseViewModel {
         if count > 2 {
             newArray = [array[count-2], array[count-1]] + array + [array[0], array[1]]
             self.indexLastTag = newArray.count - 3
+            if listFavorite.count < newArray.count {
+                self.listFavorite = [Bool](repeating: false, count: newArray.count)
+            }
         }
         return newArray
     }

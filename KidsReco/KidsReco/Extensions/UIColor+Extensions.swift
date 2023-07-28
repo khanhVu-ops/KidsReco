@@ -8,7 +8,25 @@
 import Foundation
 import UIKit
 extension UIColor {
-    
+    func toHexString() -> String {
+        var red: CGFloat = 0.0
+        var green: CGFloat = 0.0
+        var blue: CGFloat = 0.0
+        var alpha: CGFloat = 0.0
+        
+        // Get the RGBA values of the color
+        if self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+            let redInt = Int(red * 255.0)
+            let greenInt = Int(green * 255.0)
+            let blueInt = Int(blue * 255.0)
+            
+            // Create the hex string in the format "#RRGGBB"
+            return String(format: "#%02X%02X%02X", redInt, greenInt, blueInt)
+        }
+        
+        // Return a default hex string if conversion fails
+        return "#000000"
+    }
     convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()

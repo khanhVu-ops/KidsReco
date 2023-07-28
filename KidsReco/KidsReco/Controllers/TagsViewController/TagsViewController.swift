@@ -23,8 +23,13 @@ class TagsViewController: BaseViewController {
     let viewModel = TagsViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.viewModel.setUpSpeaker()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.viewModel.saveListFavorite()
     }
     
     override func setUpUI() {
@@ -118,14 +123,18 @@ class TagsViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-        self.viewModel.title.bind(to: self.lbTitle.rx.text)
+        self.viewModel.title
+            .subscribe(onNext: { [weak self] title in
+                self?.lbTitle.text = title
+                self?.viewModel.getListFavorite(for: title)
+            })
             .disposed(by: disposeBag)
     }
 
     func updateUIWithIndex(index: Int) {
         let item = self.viewModel.listTags.value[index]
         self.lbTagName.text = item.tagName
-        self.updateUIBtnHeart(isFavorite: item.isFavorite ?? false)
+        self.updateUIBtnHeart(isFavorite: self.viewModel.listFavorite[index])
     }
     
     func updateUIBtnHeart(isFavorite: Bool) {
@@ -137,18 +146,15 @@ class TagsViewController: BaseViewController {
         guard let tagName = self.viewModel.listTags.value[self.viewModel.currentIndex].tagName else {
             return
         }
-        let wikiVC = WikiWebViewViewController(title: tagName.preHandleURL())
+        let wikiVC = WikiWebViewViewController(title: tagName)
         let navWeb = UINavigationController(rootViewController: wikiVC)
         self.present(navWeb, animated: true, completion: nil)
     }
     
     func btnHeartToggle() {
-        guard let isFavoite = self.viewModel.listTags.value[self.viewModel.currentIndex].isFavorite else {
-            return
-        }
-        
-        self.updateUIBtnHeart(isFavorite: !isFavoite)
-        self.viewModel.updateStatusFavorite(isFavorite: !isFavoite)
+        let isFavorite = self.viewModel.listFavorite[self.viewModel.currentIndex]
+        self.viewModel.btnHeartToggle()
+        self.updateUIBtnHeart(isFavorite: !isFavorite)
     }
 }
 

@@ -14,7 +14,6 @@ class MenuViewController: BaseViewController {
     @IBOutlet weak var vTermsAndConditions: UIView!
     @IBOutlet weak var vLastestVersion: UIView!
     @IBOutlet weak var vAdmin: UIView!
-    
     @IBOutlet weak var btnShare: UIButton!
     @IBOutlet weak var btnTermsAndConditions: UIButton!
     @IBOutlet weak var btnLastestVersion: UIButton!
@@ -44,12 +43,16 @@ class MenuViewController: BaseViewController {
         self.btnShare.defaultTap()
             .subscribe(onNext: { [weak self] in
                 self?.btnShare.dimButton()
+                Toast.show("Coming soon!")
             })
             .disposed(by: disposeBag)
         
         self.btnTermsAndConditions.defaultTap()
             .subscribe(onNext: { [weak self] in
                 self?.btnTermsAndConditions.dimButton()
+                let termVC = TermViewController()
+                let navTerm = UINavigationController(rootViewController: termVC)
+                self?.present(navTerm, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
         

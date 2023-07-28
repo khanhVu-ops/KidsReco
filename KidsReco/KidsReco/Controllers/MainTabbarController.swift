@@ -12,32 +12,16 @@ protocol MainTabbarDelegate: NSObject {
     func goToViewController(with index: Int, isHideTabbar: Bool)
 }
 class MainTabbarController: UITabBarController {
-
-    private lazy var imvScan: UIImageView = {
-        let imv = UIImageView()
-        imv.image = UIImage(named: "ic_scan")?.resize(with: CGSize(width: 25, height: 25))
-        imv.contentMode = .scaleAspectFill
-        
-        return imv
-    }()
-    
-    private lazy var vLine: UIView = {
-        let v = UIView()
-        v.backgroundColor = .lightGray
-        return v
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let customizedTabbar = CustomizedTabBar()
+        self.setValue(customizedTabbar, forKey: "tabBar")
         self.delegate = self
-        self.tabBar.addSubview(vLine)
-        vLine.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview()
-            make.height.equalTo(0.3)
+        customizedTabbar.actionTapMiddleItem = { [weak self] index in
+            self?.selectedIndex = index
+            self?.tabBar.isHidden = true
         }
-        
         self.tabBar.tintColor = .blue
         self.tabBar.unselectedItemTintColor = .darkGray
         let homeVC = HomeViewController()
@@ -51,16 +35,6 @@ class MainTabbarController: UITabBarController {
         homeVC.tabBarItem = firstItem
         cameraVC.tabBarItem = secondItem
         menuVC.tabBarItem = thirdItem
-
-        tabBar.addSubview(imvScan)
-        imvScan.addConnerRadius(radius: 20)
-        imvScan.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(5)
-            make.width.height.equalTo(40)
-        }
-        imvScan.backgroundColor = Constants.Color.bgrItem
-        tabBar.bringSubviewToFront(imvScan)
         viewControllers = [homeVC, cameraVC, menuVC]
     }
 }

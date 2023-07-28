@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import ProgressHUD
 
 class WikiWebViewViewController: UIViewController {
     private let webView: WKWebView = {
@@ -22,7 +23,7 @@ class WikiWebViewViewController: UIViewController {
     private var domainWiki = "https://en.wikipedia.org/wiki/"
     
     init(title: String) {
-        self.domainWiki += title
+        self.domainWiki += title.preHandleURL()
         super.init(nibName: nil, bundle: nil)
         self.title = title
         self.url = URL(string: self.domainWiki)
@@ -36,6 +37,7 @@ class WikiWebViewViewController: UIViewController {
         super.viewDidLoad()
         
         view.addSubview(webView)
+        webView.navigationDelegate = self
         guard let url = url else {
             return
         }
@@ -64,5 +66,22 @@ class WikiWebViewViewController: UIViewController {
             return
         }
         webView.load(URLRequest(url: url))
+    }
+}
+
+extension WikiWebViewViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        // Show the activity indicator when the web view starts loading
+        ProgressHUD.show()
+    }
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        // Hide the activity indicator when the web view finishes loading
+        ProgressHUD.remove()
+    }
+
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        // Hide the activity indicator if web view navigation fails
+        ProgressHUD.remove()
     }
 }
