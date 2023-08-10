@@ -186,6 +186,8 @@ extension TagsViewController: UICollectionViewDataSource, UICollectionViewDelega
             self.viewModel.currentIndex += 1
         } else if scrollView.contentOffset.x < self.viewModel.initialContentOffset.x {
             self.viewModel.currentIndex -= 1
+        } else {
+            return
         }
         self.viewModel.scrollToIndex(collectionView: self.cltvListTags, index: self.viewModel.currentIndex, isAnimate: true)
         targetContentOffset.pointee = scrollView.contentOffset
