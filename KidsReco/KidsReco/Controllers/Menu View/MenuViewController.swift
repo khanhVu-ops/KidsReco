@@ -51,10 +51,9 @@ class MenuViewController: BaseViewController {
         self.btnTermsAndConditions.defaultTap()
             .subscribe(onNext: { [weak self] in
                 self?.btnTermsAndConditions.dimButton()
-                Toast.show("Comming soon!")
-//                let termVC = TermViewController()
-//                let navTerm = UINavigationController(rootViewController: termVC)
-//                self?.present(navTerm, animated: true, completion: nil)
+                let termVC = TermViewController()
+                let navTerm = UINavigationController(rootViewController: termVC)
+                self?.present(navTerm, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
         
