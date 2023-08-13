@@ -116,8 +116,8 @@ class FilterViewController: BaseViewController {
         return stv
     }()
     
-    private var cameraView = CameraView(cameraType: .video)
-    private var detailView = DetailImageView()
+    private var cameraView: CameraView!
+    private var detailView: DetailImageView!
     private var coremlRequest: VNCoreMLRequest?
     
     var isCaptured = false
@@ -127,14 +127,15 @@ class FilterViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        cameraView = CameraView(cameraType: .video)
+        detailView = DetailImageView()
         self.setUpView()
+        self.bindEvented()
         predict()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.cameraView.startSession()
-       
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -230,7 +231,7 @@ class FilterViewController: BaseViewController {
         }
     }
     
-    override func bindEvent() {
+    func bindEvented() {
         self.requestPermissionAccessPhotos { [weak self] isAccess in
             guard let strongSelf = self else {
                 return

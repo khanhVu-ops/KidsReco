@@ -57,6 +57,7 @@ class WikiWebViewViewController: UIViewController {
     
     @objc private func didTapDone(_ sender: UIButton) {
         sender.dimButton()
+        ProgressHUD.remove()
         self.dismiss(animated: true, completion: nil)
     }
     

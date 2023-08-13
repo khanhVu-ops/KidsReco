@@ -85,15 +85,15 @@ extension UIViewController {
     }
     
     func showAlertOpenSettingCamera() {
-        self.showAlertSetting(title: "Chat App", message: "Chat App doesn't have permission to use the camera, please change privacy settings")
+        self.showAlertSetting(title: "Kids Know World", message: "The app is currently denied access to the camera. Please open settings and grant camera access permission to enable image recognition from the camera.")
     }
     
     func showAlertOpenSettingPhotos() {
-        self.showAlertSetting(title: "Chat App", message: "Chat App doesn't have permission to use the library, please change privacy settings")
+        self.showAlertSetting(title: "Kids Know World", message: "The app is currently denied access to the photos. Please open settings and grant photos access permission to enable image recognition from the photos.")
     }
     
     func showAlertOpenSettingAudio() {
-        self.showAlertSetting(title: "Chat App", message: "Chat App doesn't have permission to use the microphone, please change privacy settings")
+        self.showAlertSetting(title: "Kids Know World", message: "The app is not authorized to access the microphone. Please grant microphone access permission to enable record audio.")
     }
     
     

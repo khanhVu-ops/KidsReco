@@ -37,6 +37,7 @@ class MenuViewController: BaseViewController {
         self.lbLastestVersion.text = self.viewModel.getLastestVersion()
         self.vAdmin.backgroundColor = Constants.Color.bgrItem
         self.vAdmin.addConnerRadius(radius: 20)
+        self.vAdmin.isHidden = true
     }
     
     override func setUpTap() {
@@ -50,9 +51,10 @@ class MenuViewController: BaseViewController {
         self.btnTermsAndConditions.defaultTap()
             .subscribe(onNext: { [weak self] in
                 self?.btnTermsAndConditions.dimButton()
-                let termVC = TermViewController()
-                let navTerm = UINavigationController(rootViewController: termVC)
-                self?.present(navTerm, animated: true, completion: nil)
+                Toast.show("Comming soon!")
+//                let termVC = TermViewController()
+//                let navTerm = UINavigationController(rootViewController: termVC)
+//                self?.present(navTerm, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
         

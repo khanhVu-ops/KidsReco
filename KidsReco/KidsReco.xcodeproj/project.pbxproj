@@ -793,9 +793,9 @@
 				DEVELOPMENT_TEAM = 4VYAT3G6F8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KidsReco/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access your camera!";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please allow access photos";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Please allow access speech recognition!";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to recognize images from the camera.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow access to recognize images from the photos.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Enable speech recognition to read text.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -824,9 +824,9 @@
 				DEVELOPMENT_TEAM = 4VYAT3G6F8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KidsReco/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access your camera!";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please allow access photos";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Please allow access speech recognition!";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to recognize images from the camera.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow access to recognize images from the photos.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Enable speech recognition to read text.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
